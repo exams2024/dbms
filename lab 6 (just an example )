@@ -1,0 +1,68 @@
+companydb> db.employee.find({_id:1});
+[ { _id: 1, name: 'AAA' } ]
+companydb> db.employee.find({_id:3},{phoneNO:1,name:0});
+MongoServerError[Location31254]: Cannot do exclusion on field name in inclusion projection
+companydb> db.employee.find({_id:3},{phoneNO:1});
+[ { _id: 3, phoneNO: 8888888 } ]
+companydb>  db.employee.find({name:'BBB'});
+[ { _id: 2, name: 'BBB', address: 'mumbai' } ]
+companydb> db.employee.find({name:'BBB'},{address:1});
+[ { _id: 2, address: 'mumbai' } ]
+companydb> db.employee.updateOne({_id:6},{$set:{rate:150}});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+companydb> db.employee.find({_id:6});
+[ { _id: 6, name: 'Ravi Darling', rate: 150 } ]
+companydb> db.employee.find({_id:6},{rate:1});
+[ { _id: 6, rate: 150 } ]
+companydb> db.employee.insertMany({_id:7,name:"Vaibsss",salary:1000},{_id:8,name:"Balbir Bakland",salary:-2000});
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+companydb> db.employee.insertMany([{_id:7,name:"Vaibsss",salary:1000},{_id:8,name:"Balbir Bakland",salary:-2000}]);
+{ acknowledged: true, insertedIds: { '0': 7, '1': 8 } }
+companydb> db.employee.find();
+[
+  { _id: 1, name: 'AAA' },
+  { _id: 2, name: 'BBB', address: 'mumbai' },
+  { _id: 3, name: 'CCC', phoneNO: 8888888 },
+  { _id: 4, name: 'Gandu Vikas', age: 19 },
+  { _id: 5, Name: 'Gaurav Gandu', gender: 'trans' },
+  { _id: 6, name: 'Ravi Darling', rate: 150 },
+  { _id: 7, name: 'Vaibsss', salary: 1000 },
+  { _id: 8, name: 'Balbir Bakland', salary: -2000 }
+]
+companydb> db.employee.updateMany({salary:3000},{$set:{lt:1500}});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+companydb> db.employee.find();
+[
+  { _id: 1, name: 'AAA' },
+  { _id: 2, name: 'BBB', address: 'mumbai' },
+  { _id: 3, name: 'CCC', phoneNO: 8888888 },
+  { _id: 4, name: 'Gandu Vikas', age: 19 },
+  { _id: 5, Name: 'Gaurav Gandu', gender: 'trans' },
+  { _id: 6, name: 'Ravi Darling', rate: 150 },
+  { _id: 7, name: 'Vaibsss', salary: 1000 },
+  { _id: 8, name: 'Balbir Bakland', salary: -2000 }
+]
+companydb> db.employee.updateMany({salary:1000},{$set:{name:"Aandu Pandu"}});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+companydb> db.employee.find({_id:7});
+[ { _id: 7, name: 'Aandu Pandu', salary: 1000 } ]
+companydb>
+

@@ -1,0 +1,28 @@
+Create database db lab-3;
+Use db_lab-3;
+ Create table Employee tb(
+emp id int primary Key, emp name Char (50) not null, age int not null, Salary bigint not null);
+
+desc Employee_tb;
+insert inte Employee_tb value
+
+(101,"vaibhav", 21, 50,000).
+
+(102, Prem", 21, 5000);
+
+(103, Vikes, 22, 4500)
+
+(104, Ravi, 22, 40,000).
+
+Select *from Employee_ tb,
+
+Select count (imp name) as no_of_Employee from Employee_ tb;
+
+Select max (Ago) as maximum age-of Employee from Employee_tb
+
+Select min (Age) as minimum age-of-Employes fran Employee_ tb
+
+Select Emp name.Salary from Employee tb order by salary asc;
+
+Select sal from Employee_tb  group by salary;
+Select count(*) as Count of Employees, salary fran Employee_tb  group by Salary

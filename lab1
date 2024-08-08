@@ -1,0 +1,47 @@
+Create database lab 1;
+
+use lab 1;
+
+Create table employees(
+EMP NOint, ENAME Char (20),
+JOB Char (20),
+MANAGER-No varchar (10)
+SAL bigint
+COMMISSION bigint).
+desc employee;
+
+Start transaction;
+begin,
+ insert into employee Value
+(1, "RAM", "developer", "M101" 4000, 15000). 2, Vivi tester"," M102", 35000, 10000), 
+(3," sanket", "promt Engineer", "M103", 70000, 30000);
+Select * from. employee;
+
+save point SP 1;
+insert into employee values. 
+(4"Vaibhav" "Designer", "M104", 50000, 100);
+
+select* from employee;
+
+Save point SP 2;
+
+insert into employee values (5. Viki", "Designer", "1205", 40000, 8000); Select from employee;
+
+roll back to sp2;
+Select *from employee;
+roll back to Sp1;
+
+Select *from employee;
+
+alter table employee modify
+
+column EMPNO int Primary Key 
+modify column ENAME char (20) not null, 
+modify column JOB Char (20) not null,
+modify Column MANAGER NO Varchar(20) not null,
+modify column SAL bigint not null ,
+modify Column COMMISSION bjgint not null;
+
+desc employee;
+
+insert into employee values (4, "Vinay", "Prompt engineer","105", 80000, NULL);

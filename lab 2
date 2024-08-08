@@ -1,0 +1,35 @@
+Create database Company 2-db;
+Use Company 2_db;
+
+Create table employee_tb(
+
+EMP NO int  Primary Kay, ENAME Char (20) not null, JOB Char (20) not null, MGR Varchar (10) not null, SAL bigint not null);
+
+desc employee_tb
+
+alter table employee to add Column COMMISSION bigint not null;
+
+desc employee-tb
+
+insert into employee-to values 
+(101,"Sudeep" "Manager", "MINI", 50000, 10000); 
+(102, "Vivi", "taver" 1102" 35000, 10000)
+;  (103, "Vaibhav," Designer"," M204, 50000, 10000),
+
+(105, "viks", "Designer", "M205", 4000, 8000):
+
+select * from employee-tb;
+
+Set Sql-Sale-updates:0;
+
+update employee-tb sal JOB, = "senior developer, where EMPNO-102
+
+Select*from employee_tb
+
+alter  table employee_tb rename column MGR to MGR- ID;
+ alter table employee_tb  rename column SAL to Salary;
+desc employee -tb;
+
+delete from employee _tb where EMP NO = 105;
+
+Select *from employee-tb;

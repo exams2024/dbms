@@ -1,0 +1,89 @@
+Create database trigger - db;
+
+Use trigger. db;
+Create table Customeres (
+id int primarry Kay
+name. Char (50),
+age int,
+addras char (50),
+Salary double);
+
+desc customers;
+
+Create table trigger_log(
+trigger id int primary Key auto_increment;
+oporation Char (10);
+old_sal double;
+new_Sal double;
+diff_sal double;
+log_ massage Char (255));
+desc trigger-Log;
+delimiter
+
+Create trigger Cust-insert-ti
+after insert on customers,
+ for each row
+
+begin
+
+declare trigger id int;
+declare operation Char (20);
+ declare old_sal double,
+
+declare new sal double,
+
+declare diff-sal.double,
+
+Declare log-message char (255),
+
+Set trigger-id trigger id, set operation "INSERT"
+
+set old_sal = 0;
+
+Set now-sal= new Salary
+
+Set diff-sal= new-sal;
+
+Set log-massage Canal("INSERT Rerformed new salary. is" new-sal);
+
+insert into trigger_log values (trigger id, operation old-sal, new sal, diff. Sal - Log-massage);
+
+end $$
+
+detimeter;
+
+insert inte Customer Value (3, "AAA", 25, 'Delhi, ", 25000)
+
+(2, 'BBB", 26, "Blare", 26000) (3)"(((", 27, 'Delhi", 25000)
+
+select * from Customers,
+Select * fran trigger log,
+
+delimeter $$
+Create trigger Cust-delete-t1
+ after delete on Customers.
+
+for each row
+
+begin
+
+declare trigger id int,
+
+declare operation. Char(10).
+
+decare old_sal double. declare new-sel double; declare diff-sal double; declare log massage char( Set trigger-id= trigger.id, set operation "DELETE" 
+Set old sal=old, Salary;
+Set new-sal =0
+Set diff_sal = old sal;
+Set log message = cancel ("Delete perform not salary is "new sal)
+insert into trigger_ Log values (trigger id, operation, old sal, new-sal, new sal, diff sal, log message).
+
+end $$
+
+delimeter
+
+delete from Customer where id=3;
+
+Select * from Customers
+
+Select * from trigger log;

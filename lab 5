@@ -1,0 +1,34 @@
+create database new1_db;
+use new1_db;
+
+create table employee (
+emp_id int primary key,
+emp_name char(10),
+age int,
+salary double);
+
+desc employee;
+
+insert into employee values(1,'AAA',22,2300),
+(2,'BBB',23,3222),
+(3,'CCC',24,3434);
+
+select * from employee;
+ 
+delimiter $$
+create procedure fetch_emp_details()
+begin
+DECLARE Emp_id int;
+DECLARE Emp_name char(20);
+DECLARE emp_age int;
+DECLARE emp_salary double;
+
+declare cursor_emp_details cursor for 
+select * from employee;
+
+open cursor_emp_details;
+loop1:loop 
+fetch cursor_emp_details into 
+Emp_id,Emp_name,emp_age,emp_salary;
+select concat("Employee ID ",Emp_id,",Employee name ",Emp_name,",Employee age",emp_age,",Employee Salary",emp_salary);
+end loop;
